@@ -1,0 +1,16 @@
+$withMe : orange; $line : solid; $pxValue : 8px; $WhiteCool : white;
+@mixin direction(){display: flex;}
+body{
+background-color: black;
+border : $pxValue $line $withMe;
+margin:0px;
+.movie {
+@include direction();
+border-bottom: $pxValue $line $withMe;
+color:white;
+.cont {
+@include direction();
+flex-direction: column;
+margin-left:20px;
+a{text-decoration: none;}
+.link{color:$WhiteCool;}}}}

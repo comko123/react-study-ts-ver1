@@ -1,0 +1,15 @@
+@mixin direction($direection){
+display: flex;
+flex-direction: $direection;}
+@mixin marginSet($top,$bot,$lef) {
+margin-top: $top; 
+margin-bottom: $bot;
+margin-left: $lef;}
+body{
+color:white;
+background-color: black;
+.container{@include direction(row);
+.parts{@include direction(column);
+.title{@include marginSet(60px,20px,40px);}
+.description{@include marginSet(60px,20px,40px);}
+ul{@include marginSet(60px,20px,40px);}}}}
