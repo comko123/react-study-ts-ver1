@@ -14,7 +14,6 @@ size_bytes: number
 type: string
 url: string
 }
-
 interface allMovie {
 background_image: string
 background_image_original:string
@@ -52,8 +51,8 @@ const Page = ({ratingDefault,textDefault}:propstype) => {
 const [data,setData] =useState<allMovie[]>()
 const state = useDeferredValue(data) 
 useEffect(()=>{(async()=>{try{
-{ setData(await(await axios(`https://yts.mx/api/v2/list_movies.json?minimum_rating=${ratingDefault}&sort_by=year`)
-).data.data.movies)}
+    const {data:{data:{movies}}} = await axios(`https://yts.mx/api/v2/list_movies.json?minimum_rating=${ratingDefault}&sort_by=year`)
+     setData(movies)
 }catch(e){console.log(e)}    
 })()},[ratingDefault])
 return (
