@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { torrents } from "../movieList/Page"
 interface allDetail {
-    background_image: string
+background_image: string
 background_image_original: string
 date_uploaded: string
 date_uploaded_unix: number
