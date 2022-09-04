@@ -57,11 +57,10 @@ useEffect(()=>{(async()=>{try{
 })()},[ratingDefault])
 return (
 <>
-{!!state?state.map(({medium_cover_image,genres,summary,id,title_long,rating}:allMovie)=>{
-if(ratingDefault===Math.floor(Number(rating))){
-return <Suspense key = {id} fallback={<h1>Loading...</h1>}>
-<MoviePage id = {id} title = {title_long} img = {medium_cover_image}
-genres = {genres} sum = {summary} rat = {rating} text = {textDefault}/>
+{!!state?state.map((item:allMovie)=>{
+if(ratingDefault===Math.floor(Number(item.rating))){
+return <Suspense key = {item.id} fallback={<h1>Loading...</h1>}>
+<MoviePage {...item} textDefault={textDefault}/>
 </Suspense>
 }}):<h1>Loading.....</h1>
 }

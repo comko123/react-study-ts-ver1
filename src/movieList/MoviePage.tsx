@@ -2,13 +2,13 @@
 import "../css/MoviePage.moudule.scss";
 import { Link } from "react-router-dom";
 interface cli {
-    img:string
+    medium_cover_image:string
     genres:string[]
-    sum:string
-    title:string
+    summary:string
+    title_long:string
     id:string
-    rat:string
-    text:string
+    rating:string
+    textDefault:string
 }
 type parm = [string,string[],string,string,string,string]
 const movieData = (...rest:parm) => {
@@ -23,11 +23,13 @@ return <>
 <h2>줄거리 : {rest[2]}</h2>
 </div></>}
 
-const MoviePage = ({img,genres,sum,id,title,rat,text}:cli) => {
+const MoviePage = ({medium_cover_image,genres,summary,id,title_long,rating,textDefault}:cli) => {
 return (<div className = "movie">
-{!!text ?
-(title.includes(text)||title.toLowerCase().includes(text))?
-movieData(img,genres,sum,title,rat,id):null
-: movieData(img,genres,sum,title,rat,id)}
+{!!textDefault ?
+(title_long.includes(textDefault)||title_long.toLowerCase().includes(textDefault))?
+movieData(medium_cover_image,genres,summary,title_long,rating,id):null
+: movieData(medium_cover_image,genres,summary,title_long,rating,id)}
 </div>)}
 export default MoviePage
+
+
